@@ -18,17 +18,15 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 ###############################################################################
 
 import rosegraphics as rg
+import math
 
 
 def main():
-    """
-    TESTS the functions that you will write below.
-    You write the tests per the _TODO_s below.
-    """
-
-
+    pythagoras(5, 12)
+    turtles('red', 10)
+    turtles('magenta', 40)
 ###############################################################################
-# TODO: 3a.  Define a function immediately below this _TODO_.
+# Done: 3a.  Define a function immediately below this _TODO_.
 #   It takes two arguments that denote, for a right triangle,
 #   the lengths of the two sides adjacent to its right angle,
 #   and it returns the length of the hypotenuse of that triangle.
@@ -36,17 +34,18 @@ def main():
 #
 #   You may name the function and its parameters whatever you wish.
 #
-# TODO: 3b.  In main, CALL your function and print the returned value,
+# Done: 3b.  In main, CALL your function and print the returned value,
 #   to test whether you defined the function correctly.
 #
 ###############################################################################
-def pythagoras()
-    side1()
-    side2()
 
 
-###############################################################################
-# TODO: 4a.  Define a function immediately below this _TODO_.
+def pythagoras(a, b):
+    print(a, "^2", "+", b, "^2", "=")
+    hypotenuse = math.sqrt((a ** 2) + (b ** 2))
+    print(hypotenuse)
+################################################################################
+# Done: 4a.  Define a function immediately below this _TODO_.
 #   It takes two arguments:
 #     -- a string that represents a color (e.g. 'red')
 #     -- a positive integer that represents the thickness of a Pen.
@@ -68,14 +67,24 @@ def pythagoras()
 #
 #   You may name the function and its parameters whatever you wish.
 #
-# TODO: 4b.  In main, CALL your function at least TWICE (with different values
+# Done: 4b.  In main, CALL your function at least TWICE (with different values
 #   for the arguments) to test whether you defined the function correctly.
 #
 ###############################################################################
+window = rg.TurtleWindow
 
+
+def turtles(color, thickness):
+    jimmy = rg.SimpleTurtle('turtle')
+    johnny = rg.SimpleTurtle('turtle')
+    jimmy.pen = rg.Pen('green', thickness)
+    johnny.pen = rg.Pen(color, 5)
+    jimmy.forward(100)
+    johnny.backward(100)
+    rg.TurtleWindow().close_on_mouse_click()
 
 ###############################################################################
-# TODO: 5.
+# Done: 5.
 #   COMMIT-and-PUSH your work (after changing this TO-DO to DONE).
 #
 #   As a reminder, here is how you should do so:
@@ -99,4 +108,6 @@ def pythagoras()
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
+
+
 main()
